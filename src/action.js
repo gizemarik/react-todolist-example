@@ -26,5 +26,15 @@ export const addItems = (name) => {
     };
 };
 
+export const deleteItem = (id) => {
+    return async (dispatch) => {
+        axios.delete('http://localhost:3004/Tasks/' + id)
+        .then(response => {
+            dispatch({ type: DELETE_ITEM, deletedItem: response.data, dId: id });
+        });
+ 
+    };
+};
+
 
 

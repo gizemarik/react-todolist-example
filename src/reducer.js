@@ -18,6 +18,9 @@ export default function toDoReducer(state = initialState, action) {
         case DELETE_ITEM:
             return {
                 ...state,
+                items: state.items.filter(
+                    item => item.id !== action.dId
+                )
             };
         default:
             return state

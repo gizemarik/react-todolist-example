@@ -1,6 +1,7 @@
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import * as taskActions from "../action";
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 const ToDoItems = props => {
     const tasks = useSelector(state => state.assest.items);
@@ -18,19 +19,22 @@ const ToDoItems = props => {
 
     useEffect(() => {
         loadTasks();
-    }, [dispatch,loadTasks]);
+    }, [dispatch, loadTasks]);
+
+    const deleteItem = useCallback(async (id) => {
+        dispatch(taskActions.deleteItem(id));
+    }, [dispatch]);
 
     const createTasks = (item) => {
-        return <li key={item.id}>{item.name}</li>
+        return <li key={item.id}>
+            <span class="taskName">
+                {item.name}
+            </span>
+            <DeleteForeverIcon onClick={deleteItem.bind(this,item.id)} style={{color: "red", float:"right"}} />
+        </li>
     };
 
-    console.log(tasks)
     var listItems = tasks.map(createTasks);
-
-
-    const deleteTasks = (key) => {
-        props.delete(key);
-    };
 
     return (
         <ul className="taskList">
