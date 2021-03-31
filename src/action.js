@@ -39,7 +39,7 @@ export const deleteItem = (id) => {
 
 export const updateItemStatus = (id,name,status) => {
     return async (dispatch) => {
-        
+        //Updates only status with reverse of the previous one, if necessary; can change other field as well to update.
         axios.put('http://localhost:3004/Tasks/' + id, {id: id, name: name, status: !status})
         .then(response => {
             dispatch({ type: UPDATE_ITEM_STATUS, updatedItem: response.data, uId: id, name: name, status: status });
