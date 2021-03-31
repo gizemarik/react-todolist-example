@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "../ToDoList.css";
+import "../ToDoList.scss";
 import { Button } from '@material-ui/core';
 
 const ToDoHeader = props => {

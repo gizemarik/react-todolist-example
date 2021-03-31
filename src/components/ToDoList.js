@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ToDoHeader from "./ToDoHeader";
 import ToDoForm from "./ToDoForm";
 import ToDoItems from "./ToDoItems";
-import "../ToDoList.css";
+import "../ToDoList.scss";
 
 const ToDoList = props => {
     return (
