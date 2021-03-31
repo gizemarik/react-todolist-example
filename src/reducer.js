@@ -9,6 +9,7 @@ export default function toDoReducer(state = initialState, action) {
         case ADD_ITEM:
             return {
                 ...state,
+                items: state.items.concat(action.newTask)
             };
         case GET_ITEM:
             return {

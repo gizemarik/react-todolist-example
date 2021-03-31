@@ -4,7 +4,6 @@ import { useDispatch,useSelector } from 'react-redux';
 
 const ToDoItems = props => {
     const tasks = useSelector(state => state.assest.items);
-    console.log(tasks);
     const dispatch = useDispatch();
 
     const loadTasks = useCallback(async () => {
@@ -22,7 +21,7 @@ const ToDoItems = props => {
     }, [dispatch,loadTasks]);
 
     const createTasks = (item) => {
-        return <li onClick={() => deleteTasks(item.id)} key={item.id}>{item.name}</li>
+        return <li key={item.id}>{item.name}</li>
     };
 
     console.log(tasks)

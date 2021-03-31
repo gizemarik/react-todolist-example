@@ -1,27 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useCallback,useRef } from "react";
 import "../ToDoList.css";
+import { useSelector, useDispatch } from 'react-redux';
+import * as taskActions from "../action";
 import { Button, TextField } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 
 const ToDoForm = props => {
-    const classes = useStyles();    
+    const classes = useStyles();
+    const dispatch = useDispatch();
+    const textRef = useRef();
+
+    const addNewItem = useCallback(async () => {
+        const nameNew = textRef.current.value;
+        dispatch(taskActions.addItems(nameNew));
+
+    }, [dispatch]);
+
     return (
         <div className="listMain">
             <div className="header">
                 <form noValidate autoComplete="off">
-                    <TextField
+                    <TextField 
+                        inputRef={textRef}
                         id="outlined-basic"
                         label="New Task"
                         variant="outlined"
                         className={classes.textField}
-                        value={() => { }}
-                        onChange={() => { }}
                         margin="normal"
                         InputProps={{
                             className: classes.input,
                         }}
                     />
-                    <Button onSubmit={props.addItem} className={classes.addButton} variant="contained" color="primary">
+                    <Button onClick={addNewItem} className={classes.addButton} variant="contained" color="primary">
                         Add
                     </Button>
                 </form>
@@ -34,16 +44,16 @@ const useStyles = makeStyles(theme => ({
     textField: {
         width: '50%',
         marginRight: '20px',
-        color: 'white',
+        color: 'black',
         paddingBottom: 0,
         marginTop: 0,
         fontWeight: 500
     },
     input: {
-        color: 'white'
+        color: 'black'
     },
     addButton: {
-        width:'5%',
+        width: '5%',
         height: 56
     }
 }));
