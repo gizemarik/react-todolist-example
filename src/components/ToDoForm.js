@@ -55,6 +55,9 @@ const useStyles = makeStyles(theme => ({
     addButton: {
         width: '5%',
         height: 56
+    },
+    listMain: {
+        paddingTop: 20
     }
 }));
 

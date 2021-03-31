@@ -1,4 +1,4 @@
-import { ADD_ITEM, GET_ITEM, DELETE_ITEM } from './action';
+import { ADD_ITEM, GET_ITEM, DELETE_ITEM, UPDATE_ITEM_STATUS } from './action';
 
 const initialState = {
     items: [],
@@ -22,6 +22,27 @@ export default function toDoReducer(state = initialState, action) {
                     item => item.id !== action.dId
                 )
             };
+
+        case UPDATE_ITEM_STATUS:
+            const taskIndex = state.items.findIndex(task => task.id === action.uId);
+
+            const updatedTask = {
+                id: action.uId,
+                name: action.name,
+                status: !action.status
+            }
+
+            const updatedUserTask = [...state.items];
+            updatedUserTask[taskIndex] = updatedTask;
+
+            console.log('REDUCER İÇERİSİNDEYİM');
+            console.log(updatedUserTask);
+
+            return {
+                ...state,
+                items: updatedUserTask
+            };
+
         default:
             return state
     }

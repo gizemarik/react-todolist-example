@@ -2,6 +2,7 @@ import axios from "axios";
 export const ADD_ITEM = 'ADD_ITEM';
 export const GET_ITEM = 'GET_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const UPDATE_ITEM_STATUS = 'UPDATE_ITEM_STATUS';
 
 
 export const fetchItems = () => {
@@ -35,6 +36,20 @@ export const deleteItem = (id) => {
  
     };
 };
+
+export const updateItemStatus = (id,name,status) => {
+    return async (dispatch) => {
+        
+        axios.put('http://localhost:3004/Tasks/' + id, {id: id, name: name, status: !status})
+        .then(response => {
+            console.log('STORE ACTİON İÇERİSİNDE ');
+            console.log(response.data);
+            dispatch({ type: UPDATE_ITEM_STATUS, updatedItem: response.data, uId: id, name: name, status: status });
+        });
+ 
+    };
+};
+
 
 
 
