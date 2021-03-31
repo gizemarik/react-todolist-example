@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import ToDoList from "../src/components/ToDoList";
 import { Provider } from 'react-redux'
 import { createStore, combineReducers,applyMiddleware } from 'redux'
 import toDoReducer from './reducer';
 import ReduxThunk from 'redux-thunk';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 var destination = document.querySelector("#container");
 
