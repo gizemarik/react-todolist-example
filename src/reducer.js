@@ -35,9 +35,6 @@ export default function toDoReducer(state = initialState, action) {
             const updatedUserTask = [...state.items];
             updatedUserTask[taskIndex] = updatedTask;
 
-            console.log('REDUCER İÇERİSİNDEYİM');
-            console.log(updatedUserTask);
-
             return {
                 ...state,
                 items: updatedUserTask

@@ -42,8 +42,6 @@ export const updateItemStatus = (id,name,status) => {
         
         axios.put('http://localhost:3004/Tasks/' + id, {id: id, name: name, status: !status})
         .then(response => {
-            console.log('STORE ACTİON İÇERİSİNDE ');
-            console.log(response.data);
             dispatch({ type: UPDATE_ITEM_STATUS, updatedItem: response.data, uId: id, name: name, status: status });
         });
  

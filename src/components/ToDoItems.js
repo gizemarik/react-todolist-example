@@ -46,13 +46,13 @@ const ToDoItems = props => {
         return <li key={item.id}>
             <Checkbox className={classes.root} checked={item.status} onChange={() => { updateTaskStatus(item.id, item.name, item.status) }} />
             {item.status ?
-                <span class="completed">
+                <span className="completed">
                     {item.name}
                 </span> :
-                <span class="notCompleted">
+                <span className="notCompleted">
                     {item.name}
                 </span>}
-            <DeleteForeverIcon onClick={deleteItem.bind(this, item.id)} style={{ color: "red", float: "right" }} />
+            <DeleteForeverIcon onClick={deleteItem.bind(this, item.id)} style={{ color: "red", float: "right"}} />
         </li>
     };
 

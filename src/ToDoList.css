@@ -10,7 +10,6 @@
     text-align: center; 
     
 }
-
 .taskList li {
     list-style: none;
     padding: 20px;
@@ -26,6 +25,11 @@
 
 .completed {
     text-decoration: line-through;
+    vertical-align: middle;
+}
+
+.notCompleted {
+    vertical-align: middle;
 }
 
 .todoHeader {
