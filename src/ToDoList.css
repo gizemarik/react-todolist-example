@@ -15,3 +15,20 @@
 .listMain {
     padding-top: 20px;
 }
+
+.taskList li {
+    list-style: none;
+    padding: 20px;
+    text-align: left;    
+    border-bottom: 1px solid #ddd;
+}
+
+.taskList {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 0;
+}
+
+.header {
+    margin-bottom: 20px;
+}

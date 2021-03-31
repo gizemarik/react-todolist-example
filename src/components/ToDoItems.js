@@ -22,9 +22,10 @@ const ToDoItems = props => {
     }, [dispatch,loadTasks]);
 
     const createTasks = (item) => {
-        return <li onClick={() => deleteTasks(item.id)} key={item.id}>{item.title}</li>
+        return <li onClick={() => deleteTasks(item.id)} key={item.id}>{item.name}</li>
     };
 
+    console.log(tasks)
     var listItems = tasks.map(createTasks);
 
 
