@@ -1,0 +1,17 @@
+.formInput {
+    width: 70%;
+}
+.listComponent {
+    width: 100%;
+    text-align: center; 
+    
+}
+.textField {
+    width: 90%,
+}
+.input {
+    color: 'black'
+}
+.listMain {
+    padding-top: 20px;
+}
