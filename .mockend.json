@@ -1,4 +1,4 @@
-[
+{
   {
     "id": 1,
     "name": "First Task",
@@ -14,4 +14,4 @@
     "title": "Third Task",
     "completed": false
   }
-]
+}
