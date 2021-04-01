@@ -21,3 +21,5 @@ For dummy input data, json-server should be run into different port and should b
 
 For GET/POST actions, Axios is used.
 CDD approach is used.
+
+![ss](https://user-images.githubusercontent.com/25980403/113365303-7d1a0c00-935e-11eb-9803-8881985b3d57.png)
