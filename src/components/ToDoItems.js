@@ -39,22 +39,22 @@ const ToDoItems = props => {
         return <li key={item.id}>
             <Checkbox style={{ color: "green" }} checked={item.status} onChange={() => { updateTaskStatus(item.id, item.name, item.status) }} />
             {item.status ?
-                <span className="completed">
+                <text className="completed" rows={5}>{item.name}</text>
+                :
+                <text className="notCompleted" rows={5}>
                     {item.name}
-                </span> :
-                <span className="notCompleted">
-                    {item.name}
-                </span>}
+                </text>
+            }
             <DeleteForeverIcon onClick={deleteItem.bind(this, item.id)} style={{ color: "red", float: "right" }} />
         </li>
-    };
+            };
 
     var listItems = tasks.map(createTasks);
 
     return (
         <ul className="taskList">
-            {listItems}
-        </ul>
+                {listItems}
+            </ul>
     );
 };
 

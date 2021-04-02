@@ -26,6 +26,7 @@ const ToDoForm = props => {
                         inputRef={textRef}
                         id="outlined-basic"
                         label="New Task"
+                        multiline={true}
                         variant="outlined"
                         className={classes.textField}
                         margin="normal"
