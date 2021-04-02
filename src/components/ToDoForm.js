@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback,useRef } from "react";
+import React, { useContext, useState, useCallback, useRef } from "react";
 import "../ToDoList.scss";
 import { useSelector, useDispatch } from 'react-redux';
 import * as taskActions from "../action";
@@ -12,15 +12,17 @@ const ToDoForm = props => {
 
     const addNewItem = useCallback(async () => {
         const nameNew = textRef.current.value;
-        dispatch(taskActions.addItems(nameNew));
-
+    
+        if (nameNew.length > 0) {
+            dispatch(taskActions.addItems(nameNew));
+        }
     }, [dispatch]);
 
     return (
         <div className="listMain">
             <div className="header">
                 <form noValidate autoComplete="off">
-                    <TextField 
+                    <TextField
                         inputRef={textRef}
                         id="outlined-basic"
                         label="New Task"
@@ -29,6 +31,12 @@ const ToDoForm = props => {
                         margin="normal"
                         InputProps={{
                             className: classes.input,
+                        }}
+                        onKeyPress={(ev) => {
+                            if (ev.key === 'Enter') {
+                                addNewItem();
+                                ev.preventDefault();
+                            }
                         }}
                     />
                     <Button onClick={addNewItem} className={classes.addButton} variant="contained" color="primary">
